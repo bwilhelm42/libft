@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/18 20:59:49 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/18 21:16:07 by bwilhelm         ###   ########.fr       */
+/*   Created: 2020/02/18 22:10:08 by bwilhelm          #+#    #+#             */
+/*   Updated: 2020/02/19 12:45:31 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memccpy(void *restrict dst, const void *restrict src,
+		int c, size_t n)
 {
-	char *z;
+	size_t			i;
+	unsigned char	*dest;
+	unsigned char	*source;
 
-	z = s;
-	while (n-- > 0)
+	dest = (unsigned char *)dst;
+	source = (unsigned char *)src;
+	i = 0;
+	while (i < n)
 	{
-		*z = 0;
-		z++;
+		if (source[i] == c)
+		{
+			dest[i] = source[i];
+			dest[++i] = '\0';
+			return (&dest[i]);
+		}
+		dest[i] = source[i];
+		i++;
 	}
+	dest[i] = '\0';
+	return (dst);
 }
