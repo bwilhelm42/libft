@@ -1,30 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 14:40:42 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/20 16:56:39 by bwilhelm         ###   ########.fr       */
+/*   Created: 2020/02/21 12:21:19 by bwilhelm          #+#    #+#             */
+/*   Updated: 2020/02/21 14:11:53 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+static int		num_len(n)
 {
-	int		i;
-	char	*str;
-	char	*ref;
+	int i;
 
-	ref = (char*)s;
-	str = (char*)malloc(ft_strlen(ref) + 1);
 	i = 0;
-	while (ref[i] != '\0')
+	if (n == 0)
+		return (1);
+	while (n !=  0)
 	{
-		str[i] = (*f)(ref[i]);
+		n = n / 10;
 		i++;
+	}
+	return (i);
+}
+
+char		*ft_itoa(int n)
+{
+	char	*str;
+	int		len;
+	long	num;
+
+	num = (long)n;
+	len = num_len(num);
+	if (num < 0)
+		len += 1;
+	str = ft_strnew(len + 1);
+	if (num < 0)
+	{
+		str[0] = '-';
+		num = num * -1;
+	}
+	if (num == 0)
+		str[0] = '0';
+	while (len-- > 0 && num != 0)
+	{
+		str[len] = (num % 10) + '0';
+		num = num / 10;
 	}
 	return (str);
 }
