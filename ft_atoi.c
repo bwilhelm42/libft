@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/18 22:10:08 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/20 12:32:23 by bwilhelm         ###   ########.fr       */
+/*   Created: 2020/02/19 22:45:37 by bwilhelm          #+#    #+#             */
+/*   Updated: 2020/02/19 23:26:45 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *restrict dst, const void *restrict src,
-		int c, size_t n)
+int		ft_atoi(const char *str)
 {
-	size_t			i;
-	unsigned char	*dest;
-	unsigned char	*source;
+	int sign;
+	int ret;
 
-	dest = (unsigned char *)dst;
-	source = (unsigned char *)src;
-	i = 0;
-	while (i < n)
+	sign = 1;
+	ret = 0;
+	while (*str == ' ' || *str == '\t' || *str == '\r' || *str == '\n'
+			|| *str == '\v' || *str == '\f')
+		str++;
+	if (*str == '-')
+		sign = -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while ((*str >= '0' && *str <= '9'))
 	{
-		if (source[i] == c)
-		{
-			dest[i] = source[i];
-			return (&dest[i + 1]);
-		}
-		dest[i] = source[i];
-		i++;
+		ret = (ret * 10) + (*str - '0');
+		str++;
 	}
-	return (NULL);
+	return (ret * sign);
 }

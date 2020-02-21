@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/18 22:10:08 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/20 12:32:23 by bwilhelm         ###   ########.fr       */
+/*   Created: 2020/02/19 15:51:31 by bwilhelm          #+#    #+#             */
+/*   Updated: 2020/02/19 16:10:46 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *restrict dst, const void *restrict src,
-		int c, size_t n)
+char	*ft_strcat(char *restrict dest, const char *restrict src)
 {
-	size_t			i;
-	unsigned char	*dest;
-	unsigned char	*source;
+	size_t i;
 
-	dest = (unsigned char *)dst;
-	source = (unsigned char *)src;
-	i = 0;
-	while (i < n)
+	i = ft_strlen(dest);
+	while (*src != '\0')
 	{
-		if (source[i] == c)
-		{
-			dest[i] = source[i];
-			return (&dest[i + 1]);
-		}
-		dest[i] = source[i];
+		dest[i] = *src;
 		i++;
+		src++;
 	}
-	return (NULL);
+	dest[i] = '\0';
+	return (dest);
 }

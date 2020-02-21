@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/18 22:10:08 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/20 12:32:23 by bwilhelm         ###   ########.fr       */
+/*   Created: 2020/02/19 22:04:47 by bwilhelm          #+#    #+#             */
+/*   Updated: 2020/02/19 22:15:55 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *restrict dst, const void *restrict src,
-		int c, size_t n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t			i;
-	unsigned char	*dest;
-	unsigned char	*source;
+	char	*big;
+	char	*small;
+	int		i;
 
-	dest = (unsigned char *)dst;
-	source = (unsigned char *)src;
-	i = 0;
-	while (i < n)
+	big = (char*)haystack;
+	small = (char*)needle;
+	if (*needle == '\0')
+		return (big);
+	while (*big != '\0' && len-- > 0)
 	{
-		if (source[i] == c)
+		i = 0;
+		while (big[i] == needle[i] && len - i > 0)
 		{
-			dest[i] = source[i];
-			return (&dest[i + 1]);
+			i++;
+			if (needle[i] == '\0')
+				return (big);
 		}
-		dest[i] = source[i];
-		i++;
+		big++;
 	}
 	return (NULL);
 }
