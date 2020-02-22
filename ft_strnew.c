@@ -6,7 +6,7 @@
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 13:36:41 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/21 22:24:20 by bwilhelm         ###   ########.fr       */
+/*   Updated: 2020/02/22 11:41:13 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ char	*ft_strnew(size_t size)
 		str[size] = 0;
 		size--;
 	}
+	str[size] = 0;
 	return (str);
 }

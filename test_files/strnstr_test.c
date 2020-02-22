@@ -3,7 +3,8 @@
 
 int		main()
 {
-	printf("%s\n", strnstr("", "A", 0));
-	printf("%s\n", ft_strnstr("", "A", 0));
+	write(1, strnstr("", "hello", 0), 6);
+	write(1, "\n", 1);
+	write(1, ft_strnstr("", "hello", 0), 6);
 	return (0);
 }

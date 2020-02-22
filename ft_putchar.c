@@ -6,13 +6,13 @@
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 14:17:14 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/21 14:17:54 by bwilhelm         ###   ########.fr       */
+/*   Updated: 2020/02/22 11:37:57 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+void	ft_putchar(wchar_t c)
 {
 	write(1, &c, 1);
 }
