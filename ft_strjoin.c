@@ -6,7 +6,7 @@
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 19:00:44 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/20 19:18:10 by bwilhelm         ###   ########.fr       */
+/*   Updated: 2020/02/21 21:51:35 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	temp = (char*)s1;
 	str = (char*)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (str == NULL)
+		return (NULL);
 	while (temp[i] != '\0')
 	{
 		str[i] = temp[i];

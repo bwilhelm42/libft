@@ -6,7 +6,7 @@
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 19:34:09 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/20 21:28:25 by bwilhelm         ###   ########.fr       */
+/*   Updated: 2020/02/21 21:53:37 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ char			*ft_strtrim(char const *s)
 	ptr = (char*)s;
 	i = cut_spaces(ptr);
 	str = (char*)malloc(i + 1);
+	if (str == NULL)
+		return (NULL);
 	while ((*ptr == ' ' || *ptr == '\n' || *ptr == '\t')
 			&& *ptr != '\0')
 		ptr++;

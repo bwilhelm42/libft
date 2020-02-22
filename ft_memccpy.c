@@ -6,7 +6,7 @@
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 22:10:08 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/20 12:32:23 by bwilhelm         ###   ########.fr       */
+/*   Updated: 2020/02/21 16:53:53 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memccpy(void *restrict dst, const void *restrict src,
 	i = 0;
 	while (i < n)
 	{
-		if (source[i] == c)
+		if (source[i] == (unsigned char)c)
 		{
 			dest[i] = source[i];
 			return (&dest[i + 1]);

@@ -3,10 +3,10 @@
 
 int		main()
 {
-	char str[6] = "12345";
-	char str_dest;
+	char *str = NULL;
+	char *str_dest = NULL;
 	
-	ft_memcpy(&str_dest, str, 4);
-	printf("%s\n", &str_dest);
+	memcpy(str_dest, str, 4);
+	printf("%s\n", str_dest);
 	return (0);
 }

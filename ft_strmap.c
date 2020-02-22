@@ -6,7 +6,7 @@
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 14:40:42 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/20 16:56:39 by bwilhelm         ###   ########.fr       */
+/*   Updated: 2020/02/21 22:02:33 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,14 @@ char	*ft_strmap(char const *s, char (*f)(char))
 
 	ref = (char*)s;
 	str = (char*)malloc(ft_strlen(ref) + 1);
+	if (str == NULL)
+		return (NULL);
 	i = 0;
 	while (ref[i] != '\0')
 	{
 		str[i] = (*f)(ref[i]);
 		i++;
 	}
+	str[i] = '\0';
 	return (str);
 }

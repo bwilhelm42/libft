@@ -38,10 +38,10 @@ $(OBJ):
 	$(CC) -c $(SRCS) 
 
 clean:
-	rm -f  *.a 
+	rm -f  *.o 
 
 fclean: clean
-	rm -f *.o
+	rm -f *.a
 
 re: fclean all
 

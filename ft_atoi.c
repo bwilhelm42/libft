@@ -6,7 +6,7 @@
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 22:45:37 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/19 23:26:45 by bwilhelm         ###   ########.fr       */
+/*   Updated: 2020/02/21 18:00:29 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		ft_atoi(const char *str)
 {
-	int sign;
-	int ret;
+	int			sign;
+	unsigned long long	ret;
 
 	sign = 1;
 	ret = 0;
