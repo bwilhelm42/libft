@@ -3,8 +3,7 @@
 
 int		main()
 {
-	write(1, strnstr("", "hello", 0), 6);
-	write(1, "\n", 1);
-	write(1, ft_strnstr("", "hello", 0), 6);
+	ft_putendl(strnstr("A", "A", 1));
+	ft_putendl(ft_strnstr("A", "A", 1));
 	return (0);
 }
