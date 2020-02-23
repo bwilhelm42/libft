@@ -6,7 +6,7 @@
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 21:08:41 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/23 14:34:03 by bwilhelm         ###   ########.fr       */
+/*   Updated: 2020/02/23 14:36:29 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 	big = (char*)haystack;
 	small = (char*)needle;
-	if (needle == NULL || *needle == '\0')
+	if (big == NULL)
+		return NULL;
+	if (small == NULL || *small == '\0')
 		return (big);
 	while (*big != '\0' && len-- > 0)
 	{
