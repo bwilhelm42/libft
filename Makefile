@@ -22,8 +22,7 @@ NAME = libft.a
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@ar rc $(NAME) $(OBJS) $(HEADER)
-	@ranlib $(NAME)
+	@ar rcs $(NAME) $(OBJS) $(HEADER)
 
 %.o: %.c
 	@gcc -Wall -Wextra -Werror -c $< -o $@
