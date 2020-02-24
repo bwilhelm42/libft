@@ -25,7 +25,7 @@ $(NAME): $(OBJS)
 	@ar rcs $(NAME) $(OBJS) $(HEADER)
 
 $(OBJS): 
-	@gcc -Wall -Wextra -Werror -c $(OBJS) 
+	@gcc -Wall -Wextra -Werror -c $(SRC) 
 
 clean:
 	@/bin/rm -rf $(OBJS)
