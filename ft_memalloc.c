@@ -6,7 +6,7 @@
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 13:09:21 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/23 14:39:44 by bwilhelm         ###   ########.fr       */
+/*   Updated: 2020/02/23 18:57:53 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	*ft_memalloc(size_t size)
 
 	if((ptr = malloc(size)) == NULL)
 		return NULL;
-	while (size-- > 0)
-		((int*)ptr)[size] = 0;
+	ft_bzero(ptr, size);
 	return (ptr);
 }
