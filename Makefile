@@ -24,7 +24,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@ar rcs $(NAME) $(OBJS) $(HEADER)
 
-%.o: %.c
+$(OBJS): 
 	@gcc -Wall -Wextra -Werror -c $< -o $@
 
 clean:
