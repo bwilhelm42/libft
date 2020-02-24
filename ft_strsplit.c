@@ -6,7 +6,7 @@
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 21:30:48 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/21 12:20:40 by bwilhelm         ###   ########.fr       */
+/*   Updated: 2020/02/24 13:49:31 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char		**ft_strsplit(char const *s, char c)
 	str_s = (char*)s;
 	str = NULL;
 	wc = word_count(str_s, c);
-	str = (char**)malloc(wc * sizeof(char*));
+	str = (char**)malloc(wc * sizeof(char*) + 1);
 	while (wc-- > 0)
 	{
 		wl = word_len(&str_s, c);
@@ -72,5 +72,6 @@ char		**ft_strsplit(char const *s, char c)
 		move_ptr_next_word(&str_s, c);
 		i++;
 	}
+	str[i] = NULL;
 	return (str);
 }
