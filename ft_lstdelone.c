@@ -6,7 +6,7 @@
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 20:30:08 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/23 20:36:13 by bwilhelm         ###   ########.fr       */
+/*   Updated: 2020/02/24 12:13:00 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t))
 {
 	(*del)((*alst)->content, (*alst)->content_size);
 	free(*alst);
-	alst = NULL;
+	*alst = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:49:02 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/24 11:21:45 by bwilhelm         ###   ########.fr       */
+/*   Updated: 2020/02/24 12:39:45 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	new = NULL;
 	if (lst)
 	{
-		new = ft_lstnew(lst->content, lst->content_size);
-		f(new);
+		new = f(lst);
 		new->next = ft_lstmap(lst->next, f);
 	}
 	return (new);
