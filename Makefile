@@ -22,7 +22,7 @@ NAME	= libft.a
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@ar rcs $(NAME) $(OBJS) $(HEADER)
+	@ar rcs $(NAME) $(OBJS) 
 
 $(OBJS): 
 	@gcc -Wall -Wextra -Werror -c $(SRC) 
