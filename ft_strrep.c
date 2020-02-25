@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_strrep.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/23 20:50:04 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/24 14:41:34 by bwilhelm         ###   ########.fr       */
+/*   Created: 2020/02/24 20:05:49 by bwilhelm          #+#    #+#             */
+/*   Updated: 2020/02/24 20:52:27 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+void	ft_strrep(char *str, char n, char old)
 {
-	new->next = *alst;
-	*alst = new;
+	while (*str != '\0')
+	{
+		if (*str == old)
+			*str = n;
+		str++;
+	}
 }

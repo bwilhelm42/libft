@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_lstcount.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/23 20:50:04 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/24 14:41:34 by bwilhelm         ###   ########.fr       */
+/*   Created: 2020/02/24 18:17:16 by bwilhelm          #+#    #+#             */
+/*   Updated: 2020/02/24 18:27:15 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+int		ft_lstcount(t_list *head)
 {
-	new->next = *alst;
-	*alst = new;
+	if (head->next)
+		return (1 + ft_lstcount(head->next));
+	return (1);
 }
