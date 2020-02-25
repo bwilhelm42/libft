@@ -6,7 +6,7 @@
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 12:55:29 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/24 12:58:37 by bwilhelm         ###   ########.fr       */
+/*   Updated: 2020/02/24 19:48:21 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstadd(t_list **alst, t_list *new);
-
+void				ft_lstaddback(t_list **alst, t_list *new);
+int					ft_lstcount(t_list *head);
+void				ft_strrep(char *str, char new, char old);
 
 #endif

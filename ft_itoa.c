@@ -6,20 +6,20 @@
 /*   By: bwilhelm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 12:21:19 by bwilhelm          #+#    #+#             */
-/*   Updated: 2020/02/24 12:58:39 by bwilhelm         ###   ########.fr       */
+/*   Updated: 2020/02/24 20:58:06 by bwilhelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		num_len(n)
+static int	num_len(long n)
 {
 	int i;
 
 	i = 0;
 	if (n == 0)
 		return (1);
-	while (n !=  0)
+	while (n != 0)
 	{
 		n = n / 10;
 		i++;
