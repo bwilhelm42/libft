@@ -32,9 +32,15 @@ $(OBJS):
 
 $(DEB):
 	@$(CFLAGS) -g -o $(DEB) $(SRC) $(MAIN)
+ifeq ($(wildcard $(MAIN)),)
+	$(error To run this command, declare main as 'MAIN=*.c')
+endif
 
 $(EXEC): $(OBJS)
 	@$(CFLAGS) -o $(EXEC) $(OBJS) $(MAIN)
+ifeq ($(wildcard $(MAIN)),)
+	$(error To run this command, declare main as 'MAIN=*.c')
+endif
 
 clean:
 	@/bin/rm -rf $(OBJS)
