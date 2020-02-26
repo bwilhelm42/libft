@@ -1,5 +1,4 @@
 HEADER	= libft.h
-
 SRC		= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c\
 		 ft_memmove.c ft_memchr.c ft_memcmp.c ft_strlen.c\
 		 ft_strdup.c ft_strcpy.c ft_strncpy.c ft_strcat.c\
@@ -15,11 +14,13 @@ SRC		= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c\
 		 ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c\
 		 ft_putnbr_fd.c ft_lstnew.c ft_lstdelone.c\
 		 ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c\
-		 ft_lstcount.c ft_lstadd_back.c ft_strrep.c
-
+		 ft_lstcount.c ft_lstadd_back.c ft_strrep.c\
+		 ft_putstrarr.c ft_lstrev.c
 OBJS	= $(SRC:.c=.o)
-
 NAME	= libft.a
+DEB		= debug
+EXEC	= run
+CFLAGS	= gcc -Wall -Wextra -Werror
 
 all: $(NAME)
 
@@ -27,13 +28,19 @@ $(NAME): $(OBJS)
 	@ar rcs $(NAME) $(OBJS) 
 
 $(OBJS): 
-	@gcc -Wall -Wextra -Werror -c $(SRC) 
+	@$(CFLAGS) -c $(SRC) 
+
+$(DEB):
+	@$(CFLAGS) -g -o $(DEB) $(SRC) $(MAIN)
+
+$(EXEC): $(OBJS)
+	@$(CFLAGS) -o $(EXEC) $(OBJS) $(MAIN)
 
 clean:
 	@/bin/rm -rf $(OBJS)
 
 fclean: clean
-	@/bin/rm -rf $(NAME)
+	@/bin/rm -rf $(NAME) $(DEB)* $(EXEC)
 
 re: fclean all
 
