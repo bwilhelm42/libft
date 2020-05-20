@@ -20,15 +20,15 @@ char	*ft_strstr(const char *haystack, const char *needle)
 
 	big = (char*)haystack;
 	small = (char*)needle;
-	if (*needle == '\0')
+	if (*small == '\0')
 		return (big);
 	while (*big != '\0')
 	{
 		i = 0;
-		while (big[i] == needle[i])
+		while (big[i] == small[i])
 		{
 			i++;
-			if (needle[i] == '\0')
+			if (small[i] == '\0')
 				return (big);
 		}
 		big++;

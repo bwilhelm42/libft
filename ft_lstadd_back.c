@@ -14,9 +14,8 @@
 
 void	ft_lstaddback(t_list **alst, t_list *new)
 {
-	t_list *count;
-
-	count = *alst;
+	if (!alst || !new)
+		return ;
 	while ((*alst)->next != NULL)
 		*alst = (*alst)->next;
 	(*alst)->next = new;
