@@ -91,5 +91,7 @@ void				ft_putstrarr(char **arr, int n);
 t_list				*ft_lstrev(t_list **head);
 void				ft_printbyte(unsigned char byte);
 t_list				*ft_lstlast(t_list *lst);
+size_t				strlcpy(char *dst, const char *src, size_t siz);
+void				*ft_calloc(size_t nmemb, size_t size);
 
 #endif

@@ -12,9 +12,9 @@ SRC		= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c\
 		 ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c\
 		 ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c\
 		 ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c\
-		 ft_putnbr_fd.c ft_lstnew.c ft_lstdelone.c\
+		 ft_putnbr_fd.c ft_lstnew.c ft_lstdelone.c ft_strlcpy.c\
 		 ft_lstclear.c ft_lstadd_front.c ft_lstiter.c ft_lstmap.c\
-		 ft_lstsize.c ft_lstadd_back.c ft_strrep.c\
+		 ft_lstsize.c ft_lstadd_back.c ft_strrep.c ft_calloc.c\
 		 ft_putstrarr.c ft_lstrev.c ft_printbyte.c ft_lstlast.c
 OBJS	= $(SRC:.c=.o)
 NAME	= libft.a
@@ -30,6 +30,8 @@ $(NAME): $(OBJS)
 $(OBJS): 
 	@$(CFLAGS) -c $(SRC) 
 
+so :
+	@gcc -fPIC -Wall -Wextra -Werror $(SRC) -shared -o libft.so
 $(DEB):
 	@$(CFLAGS) -g -o $(DEB) $(SRC) $(MAIN)
 ifeq ($(wildcard $(MAIN)),)
@@ -46,7 +48,7 @@ clean:
 	@/bin/rm -rf $(OBJS)
 
 fclean: clean
-	@/bin/rm -rf $(NAME) $(DEB)* $(EXEC)
+	@/bin/rm -rf $(NAME) $(DEB)* $(EXEC) libft.so
 
 re: fclean all
 
