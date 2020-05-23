@@ -9,7 +9,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		return (NULL);
 	total = nmemb * size;
 	if ((arr = malloc(total)) == NULL)
-		return ;
+		return NULL;
 	ft_bzero(arr, total);
 	return (arr);
 }
