@@ -9,7 +9,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t siz)
 		ft_strcpy(dst, src);
 	else if (siz != 0)
 	{
-		while (--size > 0)
+		while (--siz > 0)
 		{
 			*dst = *src;
 			src++;
@@ -17,5 +17,4 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t siz)
 		}
 		*dst = '\0';
 	}
-	return (srclen);
-}
+	return (srclen); }
