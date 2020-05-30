@@ -20,6 +20,7 @@ static int	word_len(char **str, char c)
 	while ((*str)[i] == c && (*str)[i] != '\0')
 		i++;
 	*str += i;
+	i = 0;
 	while ((*str)[i] != c && (*str)[i] != '\0')
 		i++;
 	return (i);
@@ -61,7 +62,8 @@ char		**ft_split(char const *s, char c)
 	str_s = (char*)s;
 	str = NULL;
 	wc = word_count(str_s, c);
-	str = (char**)malloc(wc * sizeof(char*) + 1);
+	if ((str = (char**)malloc(wc * sizeof(char*) + 1)) == NULL)
+		return (NULL);
 	while (wc-- > 0)
 	{
 		wl = word_len(&str_s, c);
