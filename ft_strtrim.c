@@ -37,7 +37,7 @@ char	*ft_strtrim(char const *s, char const *set)
 		i++;
 	while (in_set(s[--i], (char*)set));
 	i++;
-	if (!(new = (char*)malloc(i + 1))
+	if (!(new = (char*)malloc(i + 1)))
 		return (NULL);
 	ft_strncpy(new, s, i);
 	new[i] = '\0';
