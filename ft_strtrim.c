@@ -28,6 +28,7 @@ char	*ft_strtrim(char const *s, char const *set)
 	char	*new;
 	int		i;
 
+	i = 0;
 	while (*s && (in_set(*s, (char*)set)))
 		s++;
 	if (!(*s))
