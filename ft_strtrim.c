@@ -12,41 +12,32 @@
 
 #include "libft.h"
 
-static int		cut_spaces(char *s)
+static int	in_set(char s, char *set)
 {
-	int start;
-	int end;
-
-	start = 0;
-	end = ft_strlen(s);
-	while (s[start] == ' ' || s[start] == '\t'
-			|| s[start] == '\n' || s[start] == '\0')
+	while (*set)
 	{
-		if (start == end)
-			return (0);
-		start++;
+		if (*set == s)
+			return (1);
+		set++;
 	}
-	while (s[end - 1] == ' ' || s[end - 1] == '\t'
-			|| s[end - 1] == '\n')
-		end--;
-	return (end - start);
+	return (0);
 }
 
-char			*ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s, char const *set)
 {
-	char	*str;
+	char	*new;
 	int		i;
-	char	*ptr;
 
-	ptr = (char*)s;
-	i = cut_spaces(ptr);
-	if ((str = (char*)malloc(i + 1)) == NULL)
-		return (NULL);
-	while ((*ptr == ' ' || *ptr == '\n' || *ptr == '\t')
-			&& *ptr != '\0')
-		ptr++;
-	if (i)
-		ft_strncpy(str, ptr, i);
-	str[i] = '\0';
-	return (str);
+	while (*s && (in_set(*s, (char*)set)))
+		s++;
+	if (!(*s))
+		return ("\0");
+	while (s[i])
+		i++;
+	while (in_set(s[--i], (char*)set));
+	i++;
+	new = (char*)malloc(i + 1);
+	ft_strncpy(new, s, i);
+	new[i] = '\0';
+	return (new);
 }
