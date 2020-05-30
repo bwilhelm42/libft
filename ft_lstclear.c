@@ -18,5 +18,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		return ;
 	if ((*lst)->next != NULL)
 		ft_lstclear(&(*lst)->next, del);
-	ft_lstdelone(lst, del);
+	ft_lstdelone(*lst, del);
 }
